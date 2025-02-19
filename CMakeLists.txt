@@ -42,7 +42,7 @@ pico_set_program_version(memory_game_embedded "0.1")
 
 # Modify the below lines to enable/disable output over UART/USB
 pico_enable_stdio_uart(memory_game_embedded 0)
-pico_enable_stdio_usb(memory_game_embedded 0)
+pico_enable_stdio_usb(memory_game_embedded 1)
 
 # Add the standard library to the build
 target_link_libraries(memory_game_embedded
@@ -55,7 +55,9 @@ target_include_directories(memory_game_embedded PRIVATE
 
 # Add any user requested libraries
 target_link_libraries(memory_game_embedded 
-        
+        hardware_pio
+        hardware_clocks
+        hardware_i2c
         )
 
 pico_add_extra_outputs(memory_game_embedded)
